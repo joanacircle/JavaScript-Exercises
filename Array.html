@@ -179,11 +179,139 @@
 
     <br><br>
     <li>
-      16. Write a JavaScript program to find the leap years in a given range of years.
+      16. Write a JavaScript program to find the leap years in a given range of years. 2000～2012
     </li>
     <br>
     <li>Ans:</li>
     <li id="sixteen"></li>
+
+    <br><br>
+    <li>
+      17. Write a JavaScript program to shuffle an array. [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="seventeen"></li>
+
+    <br><br>
+    <li>
+      18. Write a JavaScript program to perform a binary search.
+      <br> Note : A binary search or half-interval search algorithm finds the position of a specified input value within an array sorted by key value.
+      <br> Sample array :
+      <br> var items = [1, 2, 3, 4, 5, 7, 8, 9];
+      <br> Expected Output :
+      <br> console.log(binary_Search(items, 1)); //0
+      <br> console.log(binary_Search(items, 5)); //4
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="eighteen"></li>
+
+    <br><br>
+    <li>
+      19. There are two arrays with individual values. Write a JavaScript program to compute the sum of each individual index value in the given array.
+      <br> Sample array :
+      <br> array1 = [1,0,2,3,4];
+      <br> array2 = [3,5,6,7,8,13];
+      <br> Expected Output :
+      <br> [4, 5, 8, 10, 12, 13]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="nineteen"></li>
+
+    <br><br>
+    <li>
+      20. Write a JavaScript program to find duplicate values in a JavaScript array. [1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twenty"></li>
+
+    <br><br>
+    <li>
+      21. Write a JavaScript program to flatten a nested (any depth) array. If you pass shallow, the array will only be flattened to a single level.
+      <br> Sample Data :
+      <br> console.log(flatten([1, [2], [3, [[4]]],[5,6]]));
+      <br> [1, 2, 3, 4, 5, 6]
+      <br> console.log(flatten([1, [2], [3, [[4]]],[5,6]], true));
+      <br> [1, 2, 3, [[4]], 5, 6]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentyone"></li>
+
+    <br><br>
+    <li>
+      22. Write a JavaScript program to compute the union of two arrays.
+      <br> Sample Data :
+      <br> console.log(union([1, 2, 3], [100, 2, 1, 10]));
+      <br> [1, 2, 3, 10, 100]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentytwo"></li>
+
+    <br><br>
+    <li>
+      23. Write a JavaScript function to find the difference between two arrays.
+      <br> Test Data :
+      <br> console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+      <br> ["3", "10", "100"]
+      <br> console.log(difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]]));
+      <br> ["6"]
+      <br> console.log(difference([1, 2, 3], [100, 2, 1, 10]));
+      <br> ["3", "10", "100"]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentythree"></li>
+
+    <br><br>
+    <li>
+      24. Write a JavaScript function to remove. 'null', '0', '""', 'false', 'undefined' and 'NaN' values from an array.
+      <br> Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+      <br> Expected result : [15, -22, 47]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentyfour"></li>
+
+    <br><br>
+    <li>
+      25. Write a JavaScript function to sort the following array of objects by title value.
+      <br> Sample object :
+
+      <br> var library = [ 
+            { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+            { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+            { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+            ];
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentyfive"></li>
+
+    <br><br>
+    <li>
+      26. Write a JavaScript program to find a pair of elements (indices of the two numbers) in a given array whose sum equals a specific target number.
+
+      <br> Input: numbers= [10,20,30,40,50,60,70], target=50
+      <br> Output: 0, 3
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentysix"></li>
+
+    <br><br>
+    <li>
+      27. Write a JavaScript function to retrieve the value of a given property from all elements in an array.
+      <br> Sample array : [NaN, 0, 15, false, -22, '',undefined, 47, null]
+      <br> Expected result : [15, -22, 47]
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="twentyseven"></li>
 
     <script>
       // 1.
@@ -378,19 +506,205 @@
       document.getElementById("fifteen").innerText = result151
 
       // 16.
-      function leapYear (arr){
-        
+      function leapYear (startYear, endYear){
+        const leapYears = [];
+
+        for (let year = startYear; year <= endYear; year++) {
+          if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            leapYears.push(year);
+          }
+        }
+
+        return leapYears;
       }
-      const result161 = leapYear()
+      const result161 = leapYear(2000,2012)
       document.getElementById("sixteen").innerText = result161
 
-      // 16.
-      function sample (){
-
+      // 17.
+      function shuffle (arr){
+        let newArray = arr.slice()
+        for (let i = newArray.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray
       }
-      const result = sample()
-      document.getElementById("num").innerText = ''
-    </script>
+      const result17 = shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+      document.getElementById("seventeen").innerText = result17
+
+      // 18.
+      function binarySearch (arr, value){
+        let start = 0
+        let end = arr.length - 1
+        while (start <= end){
+          let mid = Math.floor((start + end) / 2)
+
+          if(arr[mid] === value){
+            return mid
+          }else if(arr[mid] < value){
+            start = mid + 1
+          }else{
+            end = mid - 1
+          }
+        }
+
+        return -1
+      }
+      const result181 = binarySearch([1, 2, 3, 4, 5, 7, 8, 9], 1)
+      const result182 = binarySearch([1, 2, 3, 4, 5, 7, 8, 9], 5)
+      document.getElementById("eighteen").innerText = result181 + "\n" + result182
+      
+      // 19.
+      function arraySum (arr1, arr2){
+        let newArray = []
+        let length1
+        let length2
+        if(arr1.length < arr2.length){
+          length1 = arr1.length
+          length2 = arr2.length - arr1.length
+          newArray.push(arr2.slice(-length2))
+        }else if(arr1.length > arr2.length){
+          length1 = arr2.length
+          length2 = arr1.length - arr2.length
+          newArray.push(arr2.slice(-length2))
+        }else{
+          length1 = arr1.length
+        }
+
+        for(let i = length1 - 1; i >= 0; i--){
+          newArray.unshift(arr1[i] + arr2[i])
+        }
+        return newArray
+      }
+      const result19 = arraySum([1,0,2,3,4], [3,5,6,7,8,13])
+      document.getElementById("nineteen").innerText = result19
+
+      // 20.
+      function duplicateValue (arr){
+        let newArray = []
+        for(let i = 0; i < arr.length; i++){
+          let compare = arr.slice(i+1, arr.length)
+          if(compare.includes(arr[i]) && !newArray.includes(arr[i])){
+            newArray.push(arr[i])
+          }
+        }
+        return newArray
+      }
+      const result20 = duplicateValue([1, 2, 2, 4, 5, 4, 7, 8, 7, 3, 6])
+      document.getElementById("twenty").innerText = result20
+
+      // 21.
+      function flatten(arr, shallow = false) {
+        let newArray = []
+        if(shallow){
+          newArray = newArray.concat(arr.flat())
+        }else{
+          for(let i = 0; i < arr.length; i++){
+            if(Array.isArray(arr[i])){
+              newArray = newArray.concat(flatten(arr[i]))
+            }else{
+              newArray.push(arr[i])
+            }
+          }
+        }
+        return newArray
+      }
+      const result211 = flatten([1, [2], [3, [[4]]],[5,6]])
+      const result212 = flatten([1, [2], [3, [[4]]],[5,6]], true)
+      document.getElementById("twentyone").innerText = JSON.stringify(result211) + "\n" + JSON.stringify(result212)
+
+      // 22.
+      function union (arr1, arr2){
+        let newArr = [... arr1, ...arr2]
+        let unionArr = Array.from(new Set(newArr)).sort((a, b) => a - b)
+        return unionArr
+      }
+      const result22 = union([1, 2, 3], [100, 2, 1, 10])
+      document.getElementById("twentytwo").innerText = result22
+
+      // 23.
+      function difference (arr1, arr2){
+        let newArr = []
+        arr1 = arr1.toString().split(',').map(Number);
+        arr2 = arr2.toString().split(',').map(Number);
+
+        for(let element of arr1){
+          if(!arr2.includes(element)){
+            newArr.push(element)
+          }
+        }
+        for(let element of arr2){
+          if(!arr1.includes(element)){
+            newArr.push(element)
+          }
+        }
+        return newArr
+      }
+      const result231 = difference([1, 2, 3], [100, 2, 1, 10])
+      const result232 = difference([1, 2, 3, 4, 5], [1, [2], [3, [[4]]],[5,6]])
+      const result233 = difference([1, 2, 3], [100, 2, 1, 10])
+      document.getElementById("twentythree").innerText = result231 + "\n" + result232 + "\n" + result233
+
+      // 24.
+      function remove (arr){
+        return arr.filter(v => !!v === true)
+      }
+      const result24 = remove([NaN, 0, 15, false, -22, '',undefined, 47, null])
+      document.getElementById("twentyfour").innerText = result24
+
+      // 25.
+      function sortByTitle(arr) {
+        return arr.sort((a, b) => {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        });
+      }
+
+      const result25 = sortByTitle([
+        { author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},
+        { author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},
+        { author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245}
+      ]);
+
+      document.getElementById("twentyfive").innerText = JSON.stringify(result25)
+
+      // 26.
+      function twoSum (arr, target){
+        let start = 0
+        let end = arr.length - 1
+        for(let i = 0; i < arr.length; i++){
+          if(arr[start] + arr[end] > target){
+            end--
+          }else if (arr[start] + arr[end] === target){
+            return [start , end]
+          }else{
+            start++
+          }
+        }
+      }
+      const result26 = twoSum([10,20,30,40,50,60,70], 50)
+      document.getElementById("twentysix").innerText = result26
+      
+      // 27.
+      function propertyValue (arr){
+        return arr.filter(v => !!v === true)
+      }
+      const result27 = propertyValue([NaN, 0, 15, false, -22, '',undefined, 47, null])
+      document.getElementById("twentyseven").innerText = result27
+
+      // 28.
+      function sample (){
+        
+      }
+      const result28 = sample()
+      document.getElementById("twentyeight").innerText = result28
+
+      </script>
   </ul>
 </body>
 </html>
