@@ -571,6 +571,91 @@
     <li>Ans:</li>
     <li id="fortyeight"></li>
 
+    <br><br>
+    <li>
+      49. Write a JavaScript program that takes an array of numbers and returns the third smallest number.
+    <br> Test Data :
+    <br> (2,3,5,7,1) -> 3
+    <br> (2,3,0,5,7,8,-2,-4) -> 0
+    <br> Expected Output:
+    <br> Original array of numbers: 2,3,5,7,1
+    <br> Third smallest number of the said array of numbers: 3
+    <br> Original array of numbers: 2,3,0,5,7,8,-2,-4
+    <br> Third smallest number of the said array of numbers: 0
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="fortynine"></li>
+
+    <br><br>
+    <li>
+      50. Write a JavaScript program that takes an array with mixed data type and calculates the sum of all numbers.
+    <br> Test Data :
+    <br> ([2, "11", 3, "a2", false, 5, 7, 1]) -> 18
+    <br> ([2, 3, 0, 5, 7, 8, true, false]) -> 25
+    <br> Expected Output:
+    <br> Original array: 2,11,3,a2,false,5,7,1
+    <br> Sum all numbers of the said array: 18
+    <br> Original array: 2,3,0,5,7,8,true,false
+    <br> Sum all numbers of the said array: 25
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="fifty"></li>
+
+    <br><br>
+    <li>
+      51. Write a JavaScript program to check if an array is a factor chain or not.
+      <br> A factor chain is an array in which the previous element is a factor of the next consecutive element. The following is a factor chain:
+      <br> [2, 4, 8, 16, 32]
+      <br> // 2 is a factor of 4
+      <br> // 4 is a factor of 8
+      <br> // 8 is a factor of 16
+      <br> // 16 is a factor of 32
+      <br> 
+    <br> Test Data :
+    <br> ([2, 4, 8, 16, 32]) -> true
+    <br> ([2, 4, 16, 32, 64]) -> true
+    <br> ([2, 4, 16, 32, 68]) -> false
+    <br> Expected Output:
+    <br> true
+    <br> true
+    <br> false
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="fiftyone"></li>
+
+    <br><br>
+    <li>
+      52. Write a JavaScript program to get all the indexes where NaN is found in a given array of numbers and NaN.
+    <br> Test Data :
+    <br> ([2, NaN, 8, 16, 32]) -> [1]
+    <br> ([2, 4, NaN, 16, 32, NaN]) -> [2,5]
+    <br> ([2, 4, 16, 32]) ->[]
+    <br> Expected Output:
+    <br> [1]
+    <br> [2,5]
+    <br> []
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="fiftytwo"></li>
+
+    <br><br>
+    <li>
+      53. Write a JavaScript program to count the number of arrays inside a given array.
+    <br> Test Data :
+    <br> ([2,8,[6],3,3,5,3,4,[5,4]]) -> 2
+    <br> ([2,8,[6,3,3],[4],5,[3,4,[5,4]]]) -> 3
+    <br> Expected Output:
+    <br> Number of arrays inside the said array: 2
+    <br> Number of arrays inside the said array: 3
+    </li>
+    <br>
+    <li>Ans:</li>
+    <li id="fiftythree"></li>
+
     <script>
       // 1.
       const data11 = 'w3resource'
@@ -1225,6 +1310,67 @@
       const result481 = areAllPrimes([2,3,5,7])
       const result482 = areAllPrimes([2,3,5,7,8])
       document.getElementById("fortyeight").innerText = JSON.stringify(result481) + "\n" + JSON.stringify(result482)
+
+      // 49.
+      function generatePermutations (arr){
+        arr.sort((a, b) => a -b)
+        return arr[2]
+      }
+      const result491 = generatePermutations([2,3,5,7,1])
+      const result492 = generatePermutations([2,3,0,5,7,8,-2,-4])
+      document.getElementById("fortynine").innerText = JSON.stringify(result491) + "\n" + JSON.stringify(result492) 
+
+      // 50.
+      function sumArray (arr){
+        let newArr = arr.filter(v => typeof v === "number")
+        return newArr.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+      }
+      const result501 = sumArray([2, "11", 3, "a2", false, 5, 7, 1])
+      const result502 = sumArray([2, 3, 0, 5, 7, 8, true, false])
+      document.getElementById("fifty").innerText = JSON.stringify(result501) + "\n" + JSON.stringify(result502) 
+
+      // 51.
+      function factorChain (arr){
+        for(let i = 0; i < arr.length - 1; i++){
+          if(arr[i + 1] % arr[i] !== 0){
+            return false
+          }
+        }
+        return true
+      }
+      const result511 = factorChain([2, 4, 8, 16, 32])
+      const result512 = factorChain([2, 4, 16, 32, 64])
+      const result513 = factorChain([2, 4, 16, 32, 68])
+      document.getElementById("fiftyone").innerText = JSON.stringify(result511) + "\n" + JSON.stringify(result512) + "\n" + JSON.stringify(result513)
+
+      // 52.
+      function findAllIndex (arr){
+        let index = []
+        arr.map((v,i) => {
+          if(isNaN(v)){
+            index.push(i)
+          }
+        })
+        return index
+      }
+      const result521 = findAllIndex([2, NaN, 8, 16, 32])
+      const result522 = findAllIndex([2, 4, NaN, 16, 32, NaN])
+      const result523 = findAllIndex([2, 4, 16, 32])
+      document.getElementById("fiftytwo").innerText = JSON.stringify(result521) + "\n" + JSON.stringify(result522) + "\n" + JSON.stringify(result523) 
+
+      // 53.
+      function countArrays (arr){
+        let count = 0
+        for(let i = 0; i < arr.length; i++){
+          if(Array.isArray(arr[i])){
+            count++
+          }
+        }
+        return count
+      }
+      const result531 = countArrays([2,8,[6],3,3,5,3,4,[5,4]])
+      const result532 = countArrays([2,8,[6,3,3],[4],5,[3,4,[5,4]]])
+      document.getElementById("fiftythree").innerText = JSON.stringify(result531) + "\n" + JSON.stringify(result532) 
 
       </script>
   </ul>
